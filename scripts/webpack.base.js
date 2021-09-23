@@ -6,6 +6,7 @@ module.exports = {
   // 入口文件，这里之后会着重强调
   entry: {
     main: path.resolve(__dirname, '../src/packages/home/index.tsx'),
+    editor: path.resolve(__dirname, '../src/packages/editor/index.tsx'),
   },
   resolve: {
     alias: {
@@ -64,7 +65,13 @@ module.exports = {
     // 生成html名称为index.html
     // 生成使用的模板为public/index.html
     new htmlWebpackPlugin({
-      filename: 'index.html',
+      filename: 'home.html',
+      chunks: ['main'],
+      template: path.resolve(__dirname, '../public/index.html'),
+    }),
+    new htmlWebpackPlugin({
+      filename: 'editor.html',
+      chunks: ['editor'],
       template: path.resolve(__dirname, '../public/index.html'),
     }),
   ],
