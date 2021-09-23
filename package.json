@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --config ./scripts/webpack.dev.js",
-    "build": "webpack --config ./scripts/webpack.base.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node ./scripts/utils/dev.js",
+    "build": "node ./scripts/utils/build.js",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -19,14 +19,28 @@
     "@babel/preset-typescript": "^7.15.0",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "add": "^2.0.6",
     "autoprefixer": "^10.3.5",
     "babel-loader": "^8.2.2",
+    "chalk": "^4.1.2",
     "css-loader": "^6.3.0",
     "cssnano": "^5.0.8",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-react": "^7.26.0",
+    "execa": "^5.1.1",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^5.3.2",
+    "husky": ">=6",
+    "inquirer": "^8.1.5",
+    "lint-staged": ">=10",
     "mini-css-extract-plugin": "^2.3.0",
     "postcss": "^8.3.7",
     "postcss-loader": "^6.1.1",
+    "prettier": "2.4.1",
     "resolve-url-loader": "^4.0.0",
     "sass": "^1.42.1",
     "sass-loader": "^12.1.0",
@@ -34,10 +48,15 @@
     "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.2.1",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "yarn": "^1.22.11"
   },
   "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,css,md}": "prettier --write"
   }
 }
