@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   // 入口文件，这里之后会着重强调
@@ -17,9 +18,30 @@ module.exports = {
   module: {
     rules: [
       {
-        // 同时认识ts jsx js tsx 文件
         test: /\.(t|j)sx?$/,
         use: 'babel-loader',
+      },
+      {
+        test: /\.(sa|sc)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              keepQuery: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpe?g|svg|gif)$/,
@@ -34,4 +56,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'assets/[name].css',
+    }),
+  ]
 };
