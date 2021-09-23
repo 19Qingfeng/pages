@@ -2,9 +2,14 @@
 
 <img alt="Logo" align="right" src="https://i.loli.net/2021/09/23/tsDzlNFJIeZS2Ku.png" width="20%" />
 
-<p style="height:100px;line-height:100px;font-weight:500">
 基于`Webpack 5`，`TypeScript`,`React`的`MPA`多页面应用实践配置
-</p>
+
++ react
++ webpack
++ typescript
++ sass
++ eslint
++ prettierrc
 
 ## Usage
 
