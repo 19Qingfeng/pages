@@ -4,12 +4,12 @@
 
 基于`Webpack 5`，`TypeScript`,`React`的`MPA`多页面应用实践配置
 
-+ react
-+ webpack
-+ typescript
-+ sass
-+ eslint
-+ prettierrc
++ `react`
++ `webpack`
++ `typescript`
++ `sass`
++ `eslint`
++ `prettierrc`
 
 ## Usage
 
