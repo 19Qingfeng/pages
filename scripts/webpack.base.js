@@ -1,5 +1,6 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   // 入口文件，这里之后会着重强调
@@ -38,14 +39,14 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
             },
           },
         ],
       },
       {
         test: /\.(png|jpe?g|svg|gif)$/,
-        type: 'asset/inline'
+        type: 'asset/inline',
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
@@ -60,5 +61,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
     }),
-  ]
+    // 生成html名称为index.html
+    // 生成使用的模板为public/index.html
+    new htmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.resolve(__dirname, '../public/index.html'),
+    }),
+  ],
 };
