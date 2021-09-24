@@ -50,8 +50,17 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|svg|gif)$/,
+        test: /\.(png|jpe?g|gif)$/,
         type: 'asset/inline',
+      },
+      {
+        test: /\.svg$/,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024 // 4kb
+          }
+        } 
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
