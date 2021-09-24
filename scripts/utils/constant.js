@@ -2,6 +2,9 @@
 const MAIN_FILE = 'index.tsx'
 const chalk = require('chalk')
 
+// 固定端口
+const BASE_PROT = 9000
+
 // 打印时颜色
 const error = chalk.bold.red
 const warning = chalk.hex('#FFA500')
@@ -26,4 +29,5 @@ module.exports = {
   MAIN_FILE,
   log,
   separator,
+  BASE_PROT,
 }

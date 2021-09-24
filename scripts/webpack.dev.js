@@ -1,6 +1,10 @@
-const { merge } = require('webpack-merge');
-const baseConfig = require('./webpack.base');
-const path = require('path');
+const { merge } = require('webpack-merge')
+const baseConfig = require('./webpack.base')
+const portfinder = require('portfinder')
+const path = require('path')
+const { BASE_PROT } = require('./utils/constant')
+
+portfinder.basePort = BASE_PROT
 
 const devConfig = {
   mode: 'development',
@@ -17,8 +21,17 @@ const devConfig = {
     // 是否开启代码压缩
     compress: true,
     // 启动的端口
-    port: 9000,
+    port: BASE_PROT,
   },
-};
+}
 
-module.exports = merge(devConfig, baseConfig);
+module.exports = async function () {
+  try {
+    // 端口被占用时候 portfinder.getPortPromise 返回一个新的端口(往上叠加)
+    const port = await portfinder.getPortPromise()
+    devConfig.devServer.port = port
+    return merge(devConfig, baseConfig)
+  } catch (e) {
+    throw new Error(e)
+  }
+}
