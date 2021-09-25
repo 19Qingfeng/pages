@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "node ./scripts/utils/dev.js",
     "build": "node ./scripts/utils/build.js",
+    "build-all": "node ./scripts/utils/build-all.js",
+    "lint": "eslint --fix src",
     "prepare": "husky install"
   },
   "keywords": [],
