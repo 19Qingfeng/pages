@@ -3,6 +3,9 @@ const fs = require('fs')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { MAIN_FILE } = require('./constant')
 
+// 检查数组是否为空
+const isEmptyArray = arr => Array.isArray(arr) & (arr.length === 0)
+
 // 获取多页面入口文件夹中的路径
 const dirPath = path.resolve(__dirname, '../../src/packages')
 
@@ -39,4 +42,5 @@ const getEntryTemplate = packages => {
 module.exports = {
   entry,
   getEntryTemplate,
+  isEmptyArray,
 }

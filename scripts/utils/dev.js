@@ -1,13 +1,13 @@
 const inquirer = require('inquirer')
 const execa = require('execa')
 const { log, separator } = require('./constant')
-const { entry } = require('./helper')
+const { entry, isEmptyArray } = require('./helper')
 
 // 获取packages下的所有文件
 const packagesList = [...Object.keys(entry)]
 
 // 至少保证一个
-if (!packagesList.length) {
+if (!isEmptyArray(packagesList)) {
   log('不合法目录，请检查src/packages/*/main.tsx', 'warning')
   return
 }
