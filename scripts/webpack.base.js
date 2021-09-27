@@ -28,6 +28,21 @@ module.exports = {
         use: 'babel-loader',
       },
       {
+        test: /\.css/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          'postcss-loader',
+        ],
+      },
+      {
         test: /\.(sa|sc)ss$/,
         use: [
           {
@@ -58,9 +73,9 @@ module.exports = {
         type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 4 * 1024 // 4kb
-          }
-        } 
+            maxSize: 4 * 1024, // 4kb
+          },
+        },
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
