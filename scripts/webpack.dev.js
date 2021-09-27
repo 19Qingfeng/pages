@@ -1,8 +1,9 @@
 const { merge } = require('webpack-merge')
+const path = require('path')
 const baseConfig = require('./webpack.base')
 const portfinder = require('portfinder')
-const path = require('path')
 const { BASE_PROT } = require('./utils/constant')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 portfinder.basePort = BASE_PROT
 
@@ -23,6 +24,14 @@ const devConfig = {
     // 启动的端口
     port: BASE_PROT,
   },
+  plugins: [
+    new ESLintPlugin({
+      context: path.resolve(__dirname, '../'),
+      fix: true,
+      files: 'src',
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+    }),
+  ],
 }
 
 module.exports = async function () {

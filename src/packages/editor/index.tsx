@@ -1,1 +1,1 @@
-console.log('editor 入口文件')
+const a = '6'
