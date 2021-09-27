@@ -7,7 +7,7 @@ const { entry, isEmptyArray } = require('./helper')
 const packagesList = [...Object.keys(entry)]
 
 // 至少保证一个
-if (!isEmptyArray(packagesList)) {
+if (isEmptyArray(packagesList)) {
   log('不合法目录，请检查src/packages/*/main.tsx', 'warning')
   return
 }
