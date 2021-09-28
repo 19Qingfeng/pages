@@ -9,6 +9,7 @@ portfinder.basePort = BASE_PROT
 
 const devConfig = {
   mode: 'development',
+  devtool: 'eval-cheap-module-source-map',
   devServer: {
     // static允许我们在DevServer下访问该目录的静态资源
     // 简单理解来说 当我们启动DevServer时相当于启动了一个本地服务器
