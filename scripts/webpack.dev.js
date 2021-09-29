@@ -24,6 +24,15 @@ const devConfig = {
     compress: true,
     // 启动的端口
     port: BASE_PROT,
+    // 代理
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        pathRewrite: {
+          '^/api': '',
+        },
+      },
+    },
   },
   plugins: [
     new ESLintPlugin({
