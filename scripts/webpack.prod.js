@@ -8,7 +8,7 @@ const prodConfig = {
   mode: 'production',
   devtool: 'source-map',
   output: {
-    filename: 'js/[name].js',
+    filename: 'js/[name].[contenthash].js',
     path: path.resolve(__dirname, '../dist'),
   },
   plugins: [new CleanWebpackPlugin(), new FriendlyErrorsWebpackPlugin()],
